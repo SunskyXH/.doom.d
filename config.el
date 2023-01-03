@@ -77,3 +77,6 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+;; Whether display the icon for `major-mode'.
+(setq doom-modeline-major-mode-icon t)
