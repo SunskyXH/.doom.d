@@ -80,3 +80,6 @@
 
 ;; Whether display the icon for `major-mode'.
 (setq doom-modeline-major-mode-icon t)
+
+;; Disable format with `lsp-mode'.
+(setq +format-with-lsp nil)
