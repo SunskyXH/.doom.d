@@ -78,8 +78,15 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-;; Whether display the icon for `major-mode'.
-(setq doom-modeline-major-mode-icon t)
+;; Whether display the icon for `major-mode' and encoding on `doom-modeline'.
+(setq doom-modeline-major-mode-icon t
+      doom-modeline-buffer-encoding t)
 
-;; Disable format with `lsp-mode'.
-(setq +format-with-lsp nil)
+;; Disable `lsp-mode' formatter in `typescript-mode'.
+(setq-hook! 'typescript-mode-hook +format-with-lsp nil)
+(setq-hook! 'typescript-tsx-mode-hook +format-with-lsp nil)
+
+;; Customize `lsp-mode' UI.
+(setq lsp-ui-doc-show-with-mouse t)
+(setq lsp-ui-doc-show-with-cursor nil)
+(setq lsp-lens-enable nil)
