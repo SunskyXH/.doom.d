@@ -91,3 +91,14 @@
 
 ;; Customize `lsp-mode' and `lsp-ui-mode'.
 (setq lsp-lens-enable nil)
+
+;; Config `lsp-mode' with `clangd'.
+(after! lsp-clangd
+  (setq lsp-clients-clangd-args
+        '("-j=8"
+          "--background-index"
+          "--clang-tidy"
+          "--completion-style=detailed"
+          "--header-intertion=never"
+          "--header-insertion-decorators=0"))
+  (set-lsp-priority! 'clangd 2))
