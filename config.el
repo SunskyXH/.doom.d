@@ -82,13 +82,6 @@
 (setq doom-modeline-major-mode-icon t
       doom-modeline-buffer-encoding t)
 
-;; Disable `lsp-mode' formatter in `typescript-mode'.
-(setq-hook! 'typescript-mode-hook +format-with-lsp nil)
-(setq-hook! 'typescript-tsx-mode-hook +format-with-lsp nil)
-
-;; Set `typescript-mode' tab-width to 2
-(setq typescript-indent-level 2)
-
 ;; Customize `lsp-mode' and `lsp-ui-mode'.
 (setq lsp-lens-enable nil)
 
