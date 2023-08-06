@@ -45,7 +45,6 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
 
-
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
 ;;
@@ -95,7 +94,7 @@
           "--header-insertion-decorators=0"))
   (set-lsp-priority! 'clangd 2))
 
-;; accept completion from copilot and fallback to company
+;; Accept completion from copilot and fallback to company
 (use-package! copilot
   :hook (prog-mode . copilot-mode)
   :bind (:map copilot-completion-map
@@ -103,3 +102,6 @@
               ("TAB" . 'copilot-accept-completion)
               ("C-TAB" . 'copilot-accept-completion-by-word)
               ("C-<tab>" . 'copilot-accept-completion-by-word)))
+
+;; Set csl styles directory to Zotero's styles directory
+(setq org-cite-csl-styles-dir "~/Zotero/styles")
