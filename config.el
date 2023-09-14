@@ -23,9 +23,7 @@
 ;;
 ;;(setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light)
 ;;      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
-(setq doom-font (font-spec :family "iosevka" :size 22 :weight 'regular)
-      doom-variable-pitch-font (font-spec :family "SF Pro Text" :size 22))
-
+(setq doom-font (font-spec :family "iosevka" :size 22 :weight 'regular))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -78,8 +76,7 @@
 ;; they are implemented.
 
 ;; Display the icon for `major-mode' and the encoding format on `doom-modeline'.
-(setq doom-modeline-major-mode-icon t
-      doom-modeline-buffer-encoding t)
+(setq doom-modeline-major-mode-icon t)
 
 ;; Customize `lsp-mode' and `lsp-ui-mode'.
 (setq lsp-lens-enable nil)
@@ -105,3 +102,8 @@
 
 ;; Set csl styles directory to Zotero's styles directory
 (setq org-cite-csl-styles-dir "~/Zotero/styles")
+
+;; Shell Configuration
+(setq shell-file-name (executable-find "bash"))
+(setq-default vterm-shell (executable-find "fish"))
+(setq-default explicit-shell-file-name (executable-find "fish"))
