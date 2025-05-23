@@ -92,7 +92,7 @@
   (set-lsp-priority! 'clangd 2))
 
 ;; Set csl styles directory to Zotero's styles directory
-(setq org-cite-csl-styles-dir "~/Zotero/styles")
+;; (setq org-cite-csl-styles-dir "~/Zotero/styles")
 
 ;; Shell Configuration
 (setq shell-file-name (executable-find "bash"))
