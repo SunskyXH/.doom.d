@@ -37,7 +37,7 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type 'relative)
+(setq display-line-numbers-type 't)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -76,24 +76,21 @@
 ;; they are implemented.
 
 ;; Display the icon for `major-mode' and the encoding format on `doom-modeline'.
-(setq doom-modeline-major-mode-icon t)
+(after! doom-modeline
+  (setq doom-modeline-major-mode-icon t))
 
 ;; Customize `lsp-mode' and `lsp-ui-mode'.
-(setq lsp-lens-enable nil)
+(after! lsp-ui-mode
+  (setq lsp-lens-enable nil))
 
-;; Config `lsp-mode' with `clangd'.
-(after! lsp-clangd
-  (setq lsp-clients-clangd-args
-        '("-j=8"
-          "--background-index"
-          "--clang-tidy"
-          "--completion-style=detailed"
-          "--header-insertion-decorators=0"))
-  (set-lsp-priority! 'clangd 2))
+;; Enable tailwindcss
+(use-package! lsp-tailwindcss
+  :after lsp-mode
+  :init
+  (setq lsp-tailwindcss-add-on-mode t))
 
-;; Set csl styles directory to Zotero's styles directory
-;; (setq org-cite-csl-styles-dir "~/Zotero/styles")
-
-;; Shell Configuration
-(setq shell-file-name (executable-find "bash"))
-(setq-default explicit-shell-file-name (executable-find "fish"))
+;; Config of `gptel'
+(gptel-make-gh-copilot "Copilot")
+(setq gptel-model 'claude-3.7-sonnet
+      gptel-backend (gptel-make-gh-copilot "Copilot")
+      gptel-default-mode 'org-mode)
