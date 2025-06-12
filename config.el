@@ -83,7 +83,15 @@
 (after! lsp-ui-mode
   (setq lsp-lens-enable nil))
 
-;; Enable tailwindcss
+;; Disable lsp format for JavaScript and TypeScript
+;; We will use `apheleia' which is used by `:format', it will call prettier for JavaScript/TypeScript
+(after! lsp-mode
+  (setq lsp-eslint-format nil
+        lsp-typescript-format-enable nil
+        lsp-javascript-format-enable nil))
+
+
+;; Config of `lsp-tailwindcss'
 (use-package! lsp-tailwindcss
   :after lsp-mode
   :init
