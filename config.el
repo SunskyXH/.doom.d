@@ -102,3 +102,9 @@
 (setq gptel-model 'claude-3.7-sonnet
       gptel-backend (gptel-make-gh-copilot "Copilot")
       gptel-default-mode 'org-mode)
+
+;; Config of `nyan-mode'
+(use-package! nyan-mode
+  :after doom-modeline
+  :config
+  (nyan-mode 1))
