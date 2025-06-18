@@ -84,7 +84,7 @@
   (setq lsp-lens-enable nil))
 
 ;; Disable lsp format for JavaScript and TypeScript
-;; We will use `apheleia' which is used by `:format', it will call prettier for JavaScript/TypeScript
+;; We will use `apheleia' which is used by `:format', it will call prettier or biome for JavaScript/TypeScript
 (after! lsp-mode
   (setq lsp-eslint-format nil
         lsp-typescript-format-enable nil
@@ -108,3 +108,12 @@
   :after doom-modeline
   :config
   (nyan-mode 1))
+
+;; Config of `lsp-biome'
+;; format using `apheleia' w/ biome so we disable the lsp format
+;; enable autofix on save
+(use-package! lsp-biome
+  :after lsp-mode
+  :init
+  (setq lsp-biome-format-on-save nil
+        lsp-biome-autofix-on-save t))
