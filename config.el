@@ -90,7 +90,6 @@
         lsp-typescript-format-enable nil
         lsp-javascript-format-enable nil))
 
-
 ;; Config of `lsp-tailwindcss'
 (use-package! lsp-tailwindcss
   :after lsp-mode
@@ -105,15 +104,11 @@
 
 ;; Config of `nyan-mode'
 (use-package! nyan-mode
-  :after doom-modeline
   :config
   (nyan-mode 1))
 
 ;; Config of `lsp-biome'
 ;; format using `apheleia' w/ biome so we disable the lsp format
-;; enable autofix on save
 (use-package! lsp-biome
   :after lsp-mode
-  :init
-  (setq lsp-biome-format-on-save nil
-        lsp-biome-autofix-on-save t))
+  :init)
