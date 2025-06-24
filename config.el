@@ -112,3 +112,14 @@
 (use-package! lsp-biome
   :after lsp-mode
   :init)
+
+;; Config of `apheleia'
+;; Preload `apheleia', ensure `apheleia-formatter' is not void when it is used in .dir-locales.el.
+(after! format
+  (require 'apheleia))
+;; Mark `apheleia-formatter' as safe-local-variable, such that when use it in .dir-locales.el, there won't be any warning.
+(put 'apheleia-formatter 'safe-local-variable #'symbolp)
+
+;; Ignore `android' directory (for react-native project)
+(after! lsp-mode
+  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]android\\'"))
