@@ -81,7 +81,7 @@
 
 ;; Customize `lsp-mode' and `lsp-ui-mode'.
 (after! lsp-ui-mode
-  (setq lsp-lens-enable nil))
+  (setq lsp-lens-enable t))
 
 ;; Disable lsp format for JavaScript and TypeScript
 ;; We will use `apheleia' which is used by `:format', it will call prettier or biome for JavaScript/TypeScript
@@ -119,6 +119,12 @@
   (require 'apheleia))
 ;; Mark `apheleia-formatter' as safe-local-variable, such that when use it in .dir-locales.el, there won't be any warning.
 (put 'apheleia-formatter 'safe-local-variable #'symbolp)
+;; Use ruff to format python projects
+(after! apheleia
+  (setf (alist-get 'python-mode apheleia-mode-alist)
+        '(ruff-isort ruff))
+  (setf (alist-get 'python-ts-mode apheleia-mode-alist)
+        '(ruff-isort ruff)))
 
 ;; Ignore `android' directory (for react-native project)
 (after! lsp-mode
@@ -129,3 +135,4 @@
       :prefix "C-c s"
       "a" #'ast-grep-search
       "A" #'ast-grep-project)
+
