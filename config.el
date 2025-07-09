@@ -131,8 +131,6 @@
   (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]android\\'"))
 
 ;; Keymap for `ast-grep'
-(map! :after ast-grep
-      :prefix "C-c s"
+(map! :prefix "C-c s"
       "a" #'ast-grep-search
       "A" #'ast-grep-project)
-
