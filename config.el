@@ -119,6 +119,7 @@
   (require 'apheleia))
 ;; Mark `apheleia-formatter' as safe-local-variable, such that when use it in .dir-locales.el, there won't be any warning.
 (put 'apheleia-formatter 'safe-local-variable #'symbolp)
+(put 'lsp-eslint-enable 'safe-local-variable #'symbolp)
 ;; Use ruff to format python projects
 (after! apheleia
   (setf (alist-get 'python-mode apheleia-mode-alist)
