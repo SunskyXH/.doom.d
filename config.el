@@ -111,7 +111,8 @@
 ;; format using `apheleia' w/ biome so we disable the lsp format
 (use-package! lsp-biome
   :after lsp-mode
-  :init)
+  :init
+  (setq lsp-biome-add-on-mode t))
 
 ;; Config of `apheleia'
 ;; Preload `apheleia', ensure `apheleia-formatter' is not void when it is used in .dir-locales.el.
