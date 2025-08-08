@@ -88,7 +88,8 @@
 (after! lsp-mode
   (setq lsp-eslint-format nil
         lsp-typescript-format-enable nil
-        lsp-javascript-format-enable nil))
+        lsp-javascript-format-enable nil
+        lsp-inlay-hint-enable t))
 
 ;; Config of `lsp-tailwindcss'
 (use-package! lsp-tailwindcss
