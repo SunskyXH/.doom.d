@@ -97,11 +97,6 @@
   :init
   (setq lsp-tailwindcss-add-on-mode t))
 
-;; Config of `gptel'
-(gptel-make-gh-copilot "Copilot")
-(setq gptel-model 'claude-3.7-sonnet
-      gptel-backend (gptel-make-gh-copilot "Copilot")
-      gptel-default-mode 'org-mode)
 
 ;; Config of `nyan-mode'
 (use-package! nyan-mode
@@ -137,3 +132,7 @@
 (map! :prefix "C-c s"
       "a" #'ast-grep-search
       "A" #'ast-grep-project)
+
+;; Fontface tweak for tree-sitter hl mode
+(after! tree-sitter
+  (set-face-attribute 'tree-sitter-hl-face:property nil :slant 'normal))
