@@ -120,8 +120,6 @@
 ;; Use ruff to format python projects
 (after! apheleia
   (setf (alist-get 'python-mode apheleia-mode-alist)
-        '(ruff-isort ruff))
-  (setf (alist-get 'python-ts-mode apheleia-mode-alist)
         '(ruff-isort ruff)))
 
 ;; Ignore `android' directory (for react-native project)
