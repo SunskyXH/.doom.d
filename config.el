@@ -131,6 +131,6 @@
       "a" #'ast-grep-search
       "A" #'ast-grep-project)
 
-;; Fontface tweak for tree-sitter hl mode
-(after! tree-sitter
-  (set-face-attribute 'tree-sitter-hl-face:property nil :slant 'normal))
+;; Fontface tweak for treesit
+(after! treesit
+  (setq treesit-font-lock-level 4))
