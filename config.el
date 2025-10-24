@@ -97,6 +97,14 @@
   :init
   (setq lsp-tailwindcss-add-on-mode t))
 
+(after! lsp-mode
+  (lsp-register-client
+   (make-lsp-client
+    :new-connection (lsp-stdio-connection (lambda () '("pyrefly" "lsp" "-j" "8")))
+    :activation-fn (lsp-activate-on "python")
+    :priority 1
+    :add-on? t
+    :server-id 'pyrefly)))
 
 ;; Config of `nyan-mode'
 (use-package! nyan-mode
