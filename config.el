@@ -100,7 +100,7 @@
 (after! lsp-mode
   (lsp-register-client
    (make-lsp-client
-    :new-connection (lsp-stdio-connection (lambda () '("pyrefly" "lsp" "-j" "8")))
+    :new-connection (lsp-stdio-connection (lambda () '("pyrefly" "lsp" "-j" "4")))
     :activation-fn (lsp-activate-on "python")
     :priority 1
     :add-on? t
@@ -138,3 +138,18 @@
 (map! :prefix "C-c s"
       "a" #'ast-grep-search
       "A" #'ast-grep-project)
+
+;; temp fix for gutter dose not refersh after vc-status changes
+(use-package! magit
+  :defer t
+  :init
+  (defun my/magit-refresh-vc-gutter-hook ()
+    (projectile-process-current-project-buffers-current
+     (lambda ()
+       (when (or (bound-and-true-p diff-hl-mode)
+                 (bound-and-true-p diff-hl-dir-mode))
+         (diff-hl--update)))))
+  :config
+  (add-hook! 'magit-refresh-buffer-hook
+             #'my/magit-refresh-vc-gutter-hook))
+
