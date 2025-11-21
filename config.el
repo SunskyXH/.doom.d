@@ -140,10 +140,8 @@
       "A" #'ast-grep-project)
 
 ;; Enable flyover-mode globally
-(add-hook 'flycheck-mode-hook #'flyover-mode)
-(after! flyover-mode
-  (setq flyover-levels '(error warning))
-  (setq flyover-show-at-eol t))
+(add-hook! 'flycheck-mode-hook #'flyover-mode)
+(setq flyover-levels '(error warning))
 
 ;; temp fix for gutter dose not refersh after vc-status changes
 (use-package! magit
