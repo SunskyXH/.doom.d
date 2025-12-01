@@ -141,7 +141,10 @@
 
 ;; Enable flyover-mode globally
 (add-hook! 'flycheck-mode-hook #'flyover-mode)
-(setq flyover-levels '(error warning))
+(setq flyover-levels '(error warning)
+      flyover-virtual-line-type nil
+      flyover-show-at-eol t
+      flyover-show-virtual-line nil)
 
 ;; temp fix for gutter dose not refersh after vc-status changes
 (use-package! magit
