@@ -141,17 +141,3 @@
       flyover-show-at-eol t
       flyover-show-virtual-line nil)
 
-;; temp fix for gutter dose not refersh after vc-status changes
-(use-package! magit
-  :defer t
-  :init
-  (defun my/magit-refresh-vc-gutter-hook ()
-    (projectile-process-current-project-buffers-current
-     (lambda ()
-       (when (or (bound-and-true-p diff-hl-mode)
-                 (bound-and-true-p diff-hl-dir-mode))
-         (diff-hl--update)))))
-  :config
-  (add-hook! 'magit-refresh-buffer-hook
-             #'my/magit-refresh-vc-gutter-hook))
-
