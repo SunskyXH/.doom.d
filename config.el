@@ -127,10 +127,4 @@
       "a" #'ast-grep-search
       "A" #'ast-grep-project)
 
-;; Enable flyover-mode globally
-(add-hook! 'flycheck-mode-hook #'flyover-mode)
-(setq flyover-levels '(error warning)
-      flyover-virtual-line-type nil
-      flyover-show-at-eol t
-      flyover-show-virtual-line nil)
 
