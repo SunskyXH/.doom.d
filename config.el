@@ -114,17 +114,15 @@
 (put 'apheleia-formatter 'safe-local-variable #'symbolp)
 (put 'lsp-eslint-enable 'safe-local-variable #'symbolp)
 ;; Use ruff to format python projects
-(after! apheleia
-  (setf (alist-get 'python-mode apheleia-mode-alist)
-        '(ruff-isort ruff)))
-
-;; Ignore `android' directory (for react-native project)
-(after! lsp-mode
-  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]android\\'"))
+(with-eval-after-load 'python
+  (set-formatter! 'ruff :modes '(python-mode python-ts-mode)))
 
 ;; Keymap for `ast-grep'
 (map! :prefix "C-c s"
       "a" #'ast-grep-search
       "A" #'ast-grep-project)
 
-
+;; Fish
+(setq shell-file-name (executable-find "bash"))
+;; (setq-default vterm-shell "/opt/homebrew/bin/fish")
+(setq-default explicit-shell-file-name "/opt/homebrew/bin/fish")
