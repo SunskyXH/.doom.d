@@ -126,3 +126,7 @@
 (setq shell-file-name (executable-find "bash"))
 ;; (setq-default vterm-shell "/opt/homebrew/bin/fish")
 (setq-default explicit-shell-file-name "/opt/homebrew/bin/fish")
+
+(after! tramp
+  (add-to-list 'tramp-remote-path "/root/.local/bin"))
+
