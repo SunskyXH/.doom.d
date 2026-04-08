@@ -8,11 +8,7 @@
 
 ;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
 ;;(package! some-package)
-
-(package! lsp-tailwindcss :recipe (:host github :repo "merrickluo/lsp-tailwindcss"))
-(package! nyan-mode)
 (package! ast-grep)
-(package! lsp-pyrefly :recipe(:host github :repo "SunskyXH/lsp-pyrefly"))
 ;; To install a package directly from a remote git repo, you must specify a
 ;; `:recipe'. You'll find documentation on what `:recipe' accepts here:
 ;; https://github.com/radian-software/straight.el#the-recipe-format

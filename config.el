@@ -79,40 +79,6 @@
 (after! doom-modeline
   (setq doom-modeline-major-mode-icon t))
 
-;; Customize `lsp-mode' and `lsp-ui-mode'.
-(after! lsp-ui-mode
-  (setq lsp-lens-enable t))
-
-;; Disable lsp format for JavaScript and TypeScript
-;; We will use `apheleia' which is used by `:format', it will call prettier or biome for JavaScript/TypeScript
-(after! lsp-mode
-  (setq lsp-eslint-format nil
-        lsp-typescript-format-enable nil
-        lsp-javascript-format-enable nil
-        lsp-inlay-hint-enable t))
-
-;; Config of `lsp-tailwindcss'
-(use-package! lsp-tailwindcss
-  :after lsp-mode
-  :init
-  (setq lsp-tailwindcss-add-on-mode t))
-
-(use-package! lsp-pyrefly
-  :after lsp-mode
-  :init)
-
-;; Config of `nyan-mode'
-(use-package! nyan-mode
-  :config
-  (nyan-mode 1))
-
-;; Config of `apheleia'
-;; Preload `apheleia', ensure `apheleia-formatter' is not void when it is used in .dir-locales.el.
-(after! format
-  (require 'apheleia))
-;; Mark `apheleia-formatter' as safe-local-variable, such that when use it in .dir-locales.el, there won't be any warning.
-(put 'apheleia-formatter 'safe-local-variable #'symbolp)
-(put 'lsp-eslint-enable 'safe-local-variable #'symbolp)
 ;; Use ruff to format python projects
 (with-eval-after-load 'python
   (set-formatter! 'ruff :modes '(python-mode python-ts-mode)))
@@ -130,3 +96,5 @@
 (after! tramp
   (add-to-list 'tramp-remote-path "/root/.local/bin"))
 
+(after! eglot-booster
+  (setq eglot-booster-no-remote-boost t))

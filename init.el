@@ -31,13 +31,13 @@
        :ui
        ;;deft              ; notational velocity for Emacs
        doom              ; what makes DOOM look the way it does
-       doom-dashboard    ; a nifty splash screen for Emacs
+       dashboard    ; a nifty splash screen for Emacs
        doom-quit         ; DOOM quit-message prompts when you quit Emacs
        ;;(emoji +unicode)  ; 🙂
        hl-todo           ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
        indent-guides     ; highlighted indent columns
        (ligatures +iosevka); ligatures and symbols to make your code pretty again
-       minimap           ; show a map of the code on the side
+       ;;minimap           ; show a map of the code on the side
        modeline          ; snazzy, Atom-inspired modeline, plus API
        nav-flash         ; blink cursor line after big motions
        ;;neotree           ; a project drawer, like NERDTree for vim
@@ -65,6 +65,7 @@
        ;;parinfer          ; turn lisp into python, sort of
        ;;rotate-text       ; cycle region at point between text candidates
        snippets          ; my elves. They type so I don't have to
+       (whitespace +guess +trim)  ; a butler for your whitespace
        ;;word-wrap         ; soft wrapping with language-aware indent
 
        :emacs
@@ -99,7 +100,7 @@
        (eval +overlay)     ; run code, run (also, repls)
        lookup              ; navigate your code and its documentation
        ;;llm               ; when I said you needed friends, I didn't mean...
-       (lsp +eglot +peek)       ; M-x vscode
+       (lsp +eglot +booster)       ; M-x vscode
        (magit +forge)    ; a git porcelain for Emacs
        make              ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
@@ -136,9 +137,9 @@
        ;;(fortran +lsp)    ; in FORTRAN, GOD is REAL (unless declared INTEGER)
        ;;fsharp            ; ML stands for Microsoft's Language
        ;;fstar             ; (dependent) types and (monadic) effects and Z3
-       (gdscript +lsp +tree-sitter)         ; the language you waited for
+       ;;(gdscript +lsp +tree-sitter)         ; the language you waited for
        ;;(go +lsp)         ; the hipster dialect
-       (graphql +lsp)      ; Give queries a REST
+       ;;(graphql +lsp)      ; Give queries a REST
        ;;(haskell +lsp)    ; a language that's lazier than I am
        ;;hy                ; readability of scheme w/ speed of python
        ;;idris             ; a language you can depend on
@@ -151,11 +152,12 @@
        (latex +fold +lsp) ; writing papers in Emacs has never been so fun
        ;;lean              ; for folks with too much to prove
        ;;ledger            ; be audit you can be
-       (lua +lsp +tree-sitter)              ; one-based indices? one-based indices
+       ;;(lua +lsp +tree-sitter)              ; one-based indices? one-based indices
        markdown            ; writing docs for people to ignore
        ;;nim               ; python + lisp at the speed of c
        (nix +lsp +tree-sitter)          ; I hereby declare "nix geht mehr!"
-       (ocaml +lsp +tree-sitter)             ; an objective camel
+       ;;(ocaml +lsp +tree-sitter)             ; an objective camel
+       ;;odin              ; C, minus its footguns
        org                 ; organize your plain life in plain text
        ;;php               ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
@@ -171,14 +173,14 @@
        (rust +lsp +tree-sitter)         ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
        ;;scala             ; java, but good
        ;;(scheme +guile)   ; a fully conniving family of lisps
-       (sh +lsp +tree-sitter)                ; she sells {ba,z,fi}sh shells on the C xor
+       (sh +lsp +fish)                ; she sells {ba,z,fi}sh shells on the C xor
        ;;sml
        ;;solidity          ; do you need a blockchain? No.
        ;;swift             ; who asked for emoji variables?
        ;;terra             ; Earth and Moon in alignment for performance.
        (web +lsp +tree-sitter)               ; the tubes
-       (yaml +lsp)              ; JSON, but readable
-       (zig +lsp + tree-sitter)              ; C, but simpler
+       (yaml +lsp +tree-sitter)              ; JSON, but readable
+       ;;(zig +lsp +tree-sitter)              ; C, but simpler
 
        :email
        ;;(mu4e +org +gmail)
