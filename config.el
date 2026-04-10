@@ -93,8 +93,13 @@
 ;; (setq-default vterm-shell "/opt/homebrew/bin/fish")
 (setq-default explicit-shell-file-name "/opt/homebrew/bin/fish")
 
+
+(use-package! msgpack)
+(use-package! tramp-rpc)
+
 (after! tramp
-  (add-to-list 'tramp-remote-path "/root/.local/bin"))
+  (add-to-list 'tramp-remote-path "/root/.local/bin")
+  (setq tramp-default-method "rpc"))
 
 (after! eglot-booster
   (setq eglot-booster-no-remote-boost t))
