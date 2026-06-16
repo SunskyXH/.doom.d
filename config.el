@@ -101,5 +101,9 @@
   (add-to-list 'tramp-remote-path "/root/.local/bin")
   (setq tramp-default-method "rpc"))
 
+(after! tramp-rpc
+  (setq tramp-rpc-deploy-git-build-policy 'release))
+
 (after! eglot-booster
   (setq eglot-booster-no-remote-boost t))
+
