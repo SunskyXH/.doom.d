@@ -90,20 +90,4 @@
 
 ;; Fish
 (setq shell-file-name (executable-find "bash"))
-;; (setq-default vterm-shell "/opt/homebrew/bin/fish")
 (setq-default explicit-shell-file-name "/opt/homebrew/bin/fish")
-
-
-(use-package! msgpack)
-(use-package! tramp-rpc)
-
-(after! tramp
-  (add-to-list 'tramp-remote-path "/root/.local/bin")
-  (setq tramp-default-method "rpc"))
-
-(after! tramp-rpc
-  (setq tramp-rpc-deploy-git-build-policy 'release))
-
-(after! eglot-booster
-  (setq eglot-booster-no-remote-boost t))
-
