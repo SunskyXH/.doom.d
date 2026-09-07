@@ -79,6 +79,28 @@
 (after! doom-modeline
   (setq doom-modeline-major-mode-icon t))
 
+;; doom-modeline computes the LSP (rocket) icon only once, on
+;; `eglot-managed-mode-hook'. If the server still has unanswered requests at
+;; that instant (common while rust-analyzer indexes), the icon is frozen yellow
+;; forever. Remember when the last computed state was transient (pending
+;; requests or an error) and recompute it at render time until it settles.
+(after! doom-modeline
+  (defvar-local +modeline--eglot-icon-stale-p nil)
+
+  (defadvice! +modeline--note-eglot-icon-stale-a (&rest _)
+    :after #'doom-modeline-update-eglot
+    (setq +modeline--eglot-icon-stale-p
+          (when-let* ((server (and (bound-and-true-p eglot--managed-mode)
+                                   (eglot-current-server))))
+            (or (jsonrpc-last-error server)
+                (cl-plusp (jsonrpc-continuation-count server))))))
+
+  (defadvice! +modeline--refresh-stale-eglot-icon-a (&rest _)
+    :before #'doom-modeline-segment--lsp
+    (when (and +modeline--eglot-icon-stale-p
+               (bound-and-true-p eglot--managed-mode))
+      (doom-modeline-update-eglot))))
+
 ;; Use ruff to format python projects
 (with-eval-after-load 'python
   (set-formatter! 'ruff :modes '(python-mode python-ts-mode)))
